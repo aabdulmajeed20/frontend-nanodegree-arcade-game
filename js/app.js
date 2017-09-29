@@ -1,6 +1,7 @@
 var TILE_WIDTH = 101, TILE_HEIGHT = 83;
 
 
+
 // Enemies our player must avoid
 var Enemy = function(loc, speed) {
     // Variables applied to each of our instances go here,
@@ -9,7 +10,7 @@ var Enemy = function(loc, speed) {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    this.x = -100;
+    this.x = 0;
     this.y = loc;
     this.speed = speed;
 };
@@ -40,8 +41,8 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 var Player = function() {
     this.sprite = 'images/char-boy.png';
-    this.x = 200;
-    this.y = 380;
+    this.x = 202;
+    this.y = 386;
 };
 
 Player.prototype.update = function() {
@@ -53,15 +54,15 @@ Player.prototype.render = function() {
 };
 
 Player.prototype.resetPlayer = function() {
-    this.x = 200;
-    this.y = 380;
+    this.x = 202;
+    this.y = 386;
 };
 
 Player.prototype.handleInput = function(keyCode) {
     if(keyCode === 'up'){
         this.y -= TILE_HEIGHT;
-        if(this.y < 50)
-        this.y = 380;
+        if(this.y < 0)
+        this.y = 386;
     }
     if(keyCode === 'down'){
         if(this.y < 380)
@@ -82,8 +83,8 @@ Player.prototype.handleInput = function(keyCode) {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 var enemy1 = new Enemy(220,2);
-var enemy2 = new Enemy(140,6);
-var enemy3 = new Enemy(60,5);
+var enemy2 = new Enemy(137,6);
+var enemy3 = new Enemy(54,5);
 var enemy4 = new Enemy(220,3);
 var allEnemies = [enemy1,enemy2,enemy3,enemy4];
 var player = new Player();
