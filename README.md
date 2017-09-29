@@ -1,7 +1,7 @@
 frontend-nanodegree-arcade-game
 ===============================
 # How to run:
-  * Just open the link for the game and it will run
+  * Just open the link for the game and it will run (index.html)
 
 # How to play:
   You must reach to the river avoiding the enemies

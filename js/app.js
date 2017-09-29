@@ -1,3 +1,12 @@
+var TILE_WIDTH = 101, TILE_HEIGHT = 83;
+
+var Character = function() {
+    var char = {
+        loc: loc,
+        speed: speed
+    };
+};
+
 // Enemies our player must avoid
 var Enemy = function(loc, speed) {
     // Variables applied to each of our instances go here,
@@ -18,8 +27,8 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     
-    this.x += this.speed;
-    if(this.x === 500)
+    this.x += this.speed * dt * 100;
+    if(this.x > 500)
     this.x = -100;  
     if((player.x <= (this.x + 50) && player.x >= (this.x - 50)) && this.y === player.y){
         player.resetPlayer();
@@ -29,6 +38,7 @@ Enemy.prototype.update = function(dt) {
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+
 };
 
 // Now write your own player class
@@ -51,26 +61,26 @@ Player.prototype.render = function() {
 Player.prototype.resetPlayer = function() {
     this.x = 200;
     this.y = 380;
-}
+};
 
 Player.prototype.handleInput = function(keyCode) {
     if(keyCode === 'up'){
-        this.y -= 80;
+        this.y -= TILE_HEIGHT;
         if(this.y < 50)
         this.y = 380;
     }
     if(keyCode === 'down'){
         if(this.y < 380)
-        this.y += 80;
+        this.y += TILE_HEIGHT;
     }
     if(keyCode === 'right'){
         if(this.x < 400)
-        this.x += 100;
+        this.x += TILE_WIDTH;
         
     }
     if(keyCode === 'left'){
         if(this.x > 0)
-        this.x -= 100;
+        this.x -= TILE_WIDTH;
     }
 };
 
