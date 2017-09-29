@@ -1,11 +1,5 @@
 var TILE_WIDTH = 101, TILE_HEIGHT = 83;
 
-var Character = function() {
-    var char = {
-        loc: loc,
-        speed: speed
-    };
-};
 
 // Enemies our player must avoid
 var Enemy = function(loc, speed) {
